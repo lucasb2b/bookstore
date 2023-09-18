@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  root to: "home#show"
+  resources :authors, except: [:destroy]
+  resources :books
 
+  delete '/authors/:id/delete' => 'authors#destroy', as: 'authors_delete'
+  get '/authors/:id/delete' => 'authors#destroy'
+
+  root 'authors#index' # Define a página inicial
 end
