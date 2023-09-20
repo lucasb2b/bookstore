@@ -38,7 +38,7 @@ class AuthorsController < ApplicationController
     @author = Author.find(params[:id])
     @author.destroy
     params[:id] = nil
-    flash[:notice] = "Art has been deleted"
+    flash[:notice] = "Author has been deleted"
     redirect_to :action => :index
   end
 

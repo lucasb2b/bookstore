@@ -4,7 +4,7 @@
 <h2>Livros deste Autor</h2>
 <ul>
   <% @author.books.each do |book| %>
-    <li><%= link_to book.title, book %></li>
+    <li><%= link_to book.author_id, book %></li>
   <% end %>
 </ul>
 

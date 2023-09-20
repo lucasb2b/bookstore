@@ -1,0 +1,12 @@
+<h1>Detalhes do Livro</h1>
+
+<p><%= @book.author_id %></p>
+<p><%= @book.id %></p>
+<p><%= @book.author.name %></p>
+
+<h1>Ações</h1>
+<hr>
+<%= link_to 'Editar', edit_book_path(@book) %>
+<%= link_to 'Excluir 1', books_delete_path(@book), method: :delete%>
+<%= link_to 'Excluir 2', books_delete_url(@book), method: :delete%>
+<%= link_to 'Voltar', books_path %>

@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = Books.all
+    @books = Book.all
   end
 
   def show
@@ -23,9 +23,11 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:id])
   end
 
   def update
+    @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to books_path, notice: 'Livro atualizado com sucesso.'
     else
@@ -34,7 +36,10 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    @book = Book.find(params[:id])
     @book.destroy
+    params[:id] = nil
+    flash[:notice] = "Book has been deleted"
     redirect_to books_path, notice: 'Livro excluído com sucesso.'
   end
 

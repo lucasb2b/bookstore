@@ -1,0 +1,16 @@
+<h1>Vincular livro ao autor</h1>
+
+<%= form_with(model: @book, local: true) do |form| %>
+  <div class="field">
+    <label>Título</label>
+    <input type="text" name="titulo" placeholder="titulo" />
+  </div>
+  <div class="field">
+    <%= form.label :author_id, 'Autor' %>
+    <%= form.collection_select :author_id, Author.all, :id, :name, prompt: 'Selecione um autor' %>
+  </div>
+  <div class="actions">
+    <%= form.submit 'Salvar' %>
+  </div>
+<% end %>
+
